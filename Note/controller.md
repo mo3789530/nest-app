@@ -48,4 +48,37 @@ export class CatsController {
 }
 
 ```
+リクエストに対してのデコレータは用意されているので場合によって使い分けることができる。
+```
+@Request()	req
+@Response()	res
+@Next()	next
+@Session()	req.session
+@Param(key?: string)	req.params / req.params[key]
+@Body(key?: string)	req.body / req.body[key]
+@Query(key?: string)	req.query / req.query[key]
+@Headers(name?: string)	req.headers / req.headers[name]
+```
 
+コントローラーを作成した場合は`app.modle.ts`でインスタンス化する必要がある。
+今回はcliツールを利用してるため自動で行われているが
+```
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { CatsController } from './cats/cats.controller';
+
+@Module({
+  imports: [],
+  controllers: [AppController, CatsController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+```
+
+このように
+```
+  controllers: [AppController, CatsController],
+```
+`controllers`に`CatsController`が追加されている
