@@ -10,7 +10,7 @@ export class CatsController {
 
   @Get()
   async findAll(@Req() requrest: Request ): Promise<Cat[]> {
-    this.catsService.findAll();
+    return this.catsService.findAll();
   }
 
   @Get(':id')
