@@ -65,3 +65,15 @@ import { CatsService } from './cats.service';
 export class CatsModule {}
 
 ```
+これでCatsModuleをインポートする全てのモジュールでCatsServiceにアクセスすることができる.
+
+### Module re-export 
+インポートしたモジュールを再度エクスポートすることもできる。
+```
+@Module({
+  imports: [CommonModule],
+  exports: [CommonModule],
+})
+export class CoreModule {}
+
+```
